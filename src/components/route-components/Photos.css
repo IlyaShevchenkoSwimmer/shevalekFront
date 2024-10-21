@@ -1,0 +1,7 @@
+.photos-wrapper {
+  display: flex;
+  width: 95%;
+  margin-bottom: 2svh;
+  flex-direction: column;
+  align-items: center;
+}

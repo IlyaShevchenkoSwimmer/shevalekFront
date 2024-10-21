@@ -1,0 +1,90 @@
+.path {
+  position: relative;
+  top: -10px;
+  left: 1%;
+  height: 30px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid grey;
+  border-radius: 10px;
+  padding: 5px 15px;
+  transition: all 0.8s ease-in-out;
+  align-self: self-start;
+  background-color: rgba(100, 100, 100, 0.5);
+}
+
+.path:hover {
+  background-color: rgba(100, 100, 100, 0.8);
+}
+
+.path-button {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  height: 30px;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+}
+
+.path-button:hover {
+  text-decoration: underline;
+}
+
+.go-back {
+  width: 30px;
+  height: 30px;
+  line-height: 27px;
+  background-color: transparent;
+  border: 2px solid grey;
+  border-radius: 10px;
+  transition: background-color 0.5s ease-in-out;
+  margin-right: 30px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+}
+
+.go-back:hover {
+  background-color: rgba(100, 100, 100, 0.8);
+}
+
+@media (hover: none) {
+  .path {
+    background-color: rgba(100, 100, 100, 0.7);
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .path-button {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .path-button {
+    font-size: 15px;
+  }
+
+  .go-back {
+    margin-right: 20px;
+  }
+}
+
+@media screen and (max-width: 515px) {
+  .path-button {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .path-button {
+    font-size: 13px;
+  }
+
+  .go-back {
+    margin-right: 10px;
+  }
+}

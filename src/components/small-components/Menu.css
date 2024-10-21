@@ -1,0 +1,168 @@
+.menu {
+  display: flex;
+  width: 98%;
+  justify-content: space-around;
+  border: 2px solid grey;
+  border-radius: 10px;
+  transition: all 0.8s ease-in-out;
+  max-height: 75svh;
+  background-color: rgba(100, 100, 100, 0.5);
+}
+
+.menu a {
+  text-decoration: none;
+}
+
+.only-menu {
+  height: inherit;
+  padding: 10px 0;
+}
+
+.menu:hover {
+  background-color: rgba(100, 100, 100, 0.8);
+}
+
+.menu-items {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+
+.menu-item-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.menu-item {
+  background-color: transparent;
+  margin: 15px;
+  border: none;
+  border-radius: 10px;
+  background-size: cover;
+  padding: 0;
+}
+
+.button-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(40, 40, 40, 0.3);
+  width: inherit;
+  height: inherit;
+  padding: 0;
+  margin: 0;
+  outline: 2px solid black;
+  border-radius: 10px;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.button-name:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.menu-item-small {
+  height: 40px;
+  width: 150px;
+}
+
+.menu-item-big {
+  height: 150px;
+  width: 150px;
+}
+
+.go-back {
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: 2px solid grey;
+  border-radius: 10px;
+  transition: background-color 0.5s ease-in-out;
+  margin-right: 30px;
+}
+
+.go-back:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.pathSelector {
+  top: 8vh;
+  left: 1%;
+  position: absolute;
+  display: flex;
+  height: 30px;
+}
+
+@media (hover: none) {
+  .menu {
+    background-color: rgba(100, 100, 100, 0.7);
+  }
+
+  .button-name {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .go-back {
+    background-color: rgba(100, 100, 100, 0.7);
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .menu-item-small {
+    height: 40px;
+    width: 120px;
+  }
+
+  .menu-item-big {
+    height: 125px;
+    width: 125px;
+  }
+
+  .button-name {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .menu-item {
+    margin: 7px;
+  }
+
+  .menu-item-small {
+    height: 40px;
+    width: 100px;
+  }
+
+  .menu-item-big {
+    height: 100px;
+    width: 100px;
+  }
+
+  .button-name {
+    font-size: 15px;
+  }
+
+  .go-back {
+    margin-right: 25px;
+  }
+}
+
+@media screen and (max-width: 515px) {
+  .menu-item-small {
+    height: 40px;
+    width: 80px;
+  }
+
+  .button-name {
+    font-size: 14px;
+  }
+
+  .go-back {
+    margin-right: 10px;
+  }
+}
