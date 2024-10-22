@@ -81,6 +81,7 @@ function NewCarousel({
                 item.style.transform = `translateX(0px)`;
               });
               setCurrentTranslate(0);
+              choosingFunc(0);
             } else {
               Array.from(items).forEach((item) => {
                 item.style.transform = `translateX(${
@@ -88,6 +89,7 @@ function NewCarousel({
                 }px)`;
               });
               setCurrentTranslate(currentTranslate - width);
+              choosingFunc(photoIndex + 1);
             }
           }
         }
@@ -100,6 +102,7 @@ function NewCarousel({
                 }px)`;
               });
               setCurrentTranslate(-(Array.from(items).length - 1) * width);
+              choosingFunc(Array.from(items).length - 1);
             } else {
               Array.from(items).forEach((item) => {
                 item.style.transform = `translateX(${
@@ -107,6 +110,7 @@ function NewCarousel({
                 }px)`;
               });
               setCurrentTranslate(currentTranslate + width);
+              choosingFunc(photoIndex - 1);
             }
           }
         }
@@ -117,6 +121,7 @@ function NewCarousel({
                 item.style.transform = `translateX(0px)`;
               });
               setCurrentTranslate(0);
+              choosingFunc(0);
             } else {
               Array.from(items).forEach((item) => {
                 item.style.transform = `translateX(${
@@ -124,6 +129,7 @@ function NewCarousel({
                 }px)`;
               });
               setCurrentTranslate(currentTranslate - width);
+              choosingFunc(photoIndex + 1);
             }
           }
         }
@@ -136,6 +142,7 @@ function NewCarousel({
                 }px)`;
               });
               setCurrentTranslate(-(Array.from(items).length - 1) * width);
+              choosingFunc(Array.from(items).length - 1);
             } else {
               Array.from(items).forEach((item) => {
                 item.style.transform = `translateX(${
@@ -143,6 +150,7 @@ function NewCarousel({
                 }px)`;
               });
               setCurrentTranslate(currentTranslate + width);
+              choosingFunc(photoIndex - 1);
             }
           }
         }
@@ -163,11 +171,13 @@ function NewCarousel({
             }px)`;
           });
           setCurrentTranslate(-(Array.from(items).length - 1) * width);
+          choosingFunc(Array.from(items).length - 1);
         } else {
           Array.from(items).forEach((item) => {
             item.style.transform = `translateX(${currentTranslate + width}px)`;
           });
           setCurrentTranslate(currentTranslate + width);
+          choosingFunc(photoIndex - 1);
         }
       }
       if (event.code === "ArrowRight") {
@@ -179,11 +189,13 @@ function NewCarousel({
             item.style.transform = `translateX(0px)`;
           });
           setCurrentTranslate(0);
+          choosingFunc(0);
         } else {
           Array.from(items).forEach((item) => {
             item.style.transform = `translateX(${currentTranslate - width}px)`;
           });
           setCurrentTranslate(currentTranslate - width);
+          choosingFunc(photoIndex + 1);
         }
       }
     },
@@ -256,6 +268,25 @@ function NewCarousel({
     }
   }, [photoIndex, visibility]);
 
+  const handleResize = useCallback(() => {
+    if (coolCarouselRef.current) {
+      const carousel = coolCarouselRef.current.getBoundingClientRect();
+      const width = carousel.width;
+      const items = document.getElementsByClassName("cool-carousel-item");
+      Array.from(items).forEach((item) => {
+        item.style.transform = `translateX(-${photoIndex * width}px)`;
+      });
+      setCurrentTranslate(-photoIndex * width);
+      console.log(photoIndex + "\n" + currentTranslate + "\n" + width);
+    }
+  }, [photoIndex, currentTranslate]);
+
+  useEffect(() => {
+    if (coolCarouselRef.current) {
+      window.addEventListener("resize", handleResize);
+    }
+  }, [photoIndex, currentTranslate]);
+
   return visibility === "hidden" ? (
     <></>
   ) : (
@@ -285,6 +316,7 @@ function NewCarousel({
               }px)`;
             });
             setCurrentTranslate(-(Array.from(items).length - 1) * width);
+            choosingFunc(Array.from(items).length - 1);
           } else {
             Array.from(items).forEach((item) => {
               item.style.transform = `translateX(${
@@ -292,6 +324,7 @@ function NewCarousel({
               }px)`;
             });
             setCurrentTranslate(currentTranslate + width);
+            choosingFunc(photoIndex - 1);
           }
         }}
         ref={leftArrowRef}
@@ -330,6 +363,7 @@ function NewCarousel({
               item.style.transform = `translateX(0px)`;
             });
             setCurrentTranslate(0);
+            choosingFunc(0);
           } else {
             Array.from(items).forEach((item) => {
               item.style.transform = `translateX(${
@@ -337,6 +371,7 @@ function NewCarousel({
               }px)`;
             });
             setCurrentTranslate(currentTranslate - width);
+            choosingFunc(photoIndex + 1);
           }
         }}
         ref={rightArrowRef}

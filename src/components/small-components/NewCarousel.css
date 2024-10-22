@@ -46,8 +46,8 @@
 
 .cool-carousel-arrow {
   position: absolute;
-  height: 30%;
-  top: 35%;
+  height: 30dvh;
+  top: 40dvh;
   width: 60px;
 }
 
