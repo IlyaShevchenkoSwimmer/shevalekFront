@@ -20,7 +20,7 @@ import Contacts from "./components/route-components/Contacts";
 
 function App() {
   useEffect(() => {
-    fetch("https://shevalek.ru:8443/api/photos/refresh");
+    fetch("https://shevalek.space:8443/api/photos/refresh");
   }, []);
   return (
     <>

@@ -15,7 +15,9 @@ function Category() {
   const location = useLocation();
 
   useEffect(() => {
-    fetch(`https://shevalek.ru:8443/api/photos?category="${params.category}"`)
+    fetch(
+      `https://shevalek.space:8443/api/photos?category="${params.category}"`
+    )
       .then((res) => res.json())
       .then((data) => setAlbum(data));
   }, []);

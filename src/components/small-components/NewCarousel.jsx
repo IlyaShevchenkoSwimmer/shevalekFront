@@ -277,7 +277,6 @@ function NewCarousel({
         item.style.transform = `translateX(-${photoIndex * width}px)`;
       });
       setCurrentTranslate(-photoIndex * width);
-      console.log(photoIndex + "\n" + currentTranslate + "\n" + width);
     }
   }, [photoIndex, currentTranslate]);
 

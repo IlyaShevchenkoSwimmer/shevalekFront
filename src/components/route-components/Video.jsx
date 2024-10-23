@@ -5,7 +5,7 @@ function Video() {
     <div className="wrapper-empty-folder">
       <Loading text="Shevalek.Space" />
       <a
-        href="https://vk.com/video-224999539_456239022"
+        href="https://vk.com/video/@club224999539"
         target="_blank"
         className="empty-folder-a"
       >

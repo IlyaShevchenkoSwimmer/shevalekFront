@@ -14,13 +14,13 @@ function Calendar() {
   const [years, setYears] = useState([]);
 
   useEffect(() => {
-    fetch('https://shevalek.ru:8443/api/photos?category="Луна в городе"')
+    fetch('https://shevalek.space:8443/api/photos?category="Луна в городе"')
       .then((res) => res.json())
       .then((data) => setAlbum(data));
   }, []);
 
   useEffect(() => {
-    fetch("https://shevalek.ru:8443/api/photos")
+    fetch("https://shevalek.space:8443/api/photos")
       .then((res) => res.json())
       .then((data) => {
         const foundYears = [];

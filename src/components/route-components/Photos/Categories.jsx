@@ -9,7 +9,7 @@ function Categories() {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch("https://shevalek.ru:8443/api/photos")
+    fetch("https://shevalek.space:8443/api/photos")
       .then((res) => res.json())
       .then((data) => {
         const foundCategories = [];

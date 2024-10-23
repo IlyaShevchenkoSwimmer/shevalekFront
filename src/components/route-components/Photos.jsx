@@ -17,7 +17,9 @@ function Photos() {
   const location = useLocation();
 
   useEffect(() => {
-    fetch('https://shevalek.ru:8443/api/photos?category="Небесная жемчужина"')
+    fetch(
+      'https://shevalek.space:8443/api/photos?category="Небесная жемчужина"'
+    )
       .then((res) => res.json())
       .then((data) => setAlbum(data));
   }, []);

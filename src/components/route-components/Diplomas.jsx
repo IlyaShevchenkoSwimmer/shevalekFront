@@ -11,7 +11,7 @@ function Diplomas() {
   const [carouselIndex, setCarouselIndex] = useState(null);
 
   useEffect(() => {
-    fetch(`https://shevalek.ru:8443/api/photos?category="Дипломы"`)
+    fetch(`https://shevalek.space:8443/api/photos?category="Дипломы"`)
       .then((res) => res.json())
       .then((data) => setAlbum(data));
   }, []);

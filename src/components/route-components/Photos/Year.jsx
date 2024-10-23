@@ -15,7 +15,7 @@ function Year() {
   const location = useLocation();
 
   useEffect(() => {
-    fetch(`https://shevalek.ru:8443/api/photos?year="${params.year}"`)
+    fetch(`https://shevalek.space:8443/api/photos?year="${params.year}"`)
       .then((res) => res.json())
       .then((data) => setAlbum(data));
   }, []);
