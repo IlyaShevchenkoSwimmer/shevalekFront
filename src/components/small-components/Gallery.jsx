@@ -4,6 +4,9 @@ import dateFilter from "../../functions/dateFilter.jsx";
 
 function Gallery({ photos, openCarousel, choosingFunc, title }) {
   const [orientation, setOrientation] = useState("vert-item");
+  const [page, setPage] = useState(1);
+
+  console.log(page);
 
   const itemRef = useRef(null);
   const galleryRef = useRef(null);
@@ -36,6 +39,23 @@ function Gallery({ photos, openCarousel, choosingFunc, title }) {
     }
   }, [galleryRef.current]);
 
+  const handleScroll = useCallback(() => {
+    const body = document.querySelector("body");
+    if (body.getBoundingClientRect().bottom < window.innerHeight + 1) {
+      setPage(page + 1);
+    }
+    //console.log(body.getBoundingClientRect().bottom, window.innerHeight);
+  }, [galleryRef.current, page]);
+
+  useEffect(() => {
+    if (galleryRef.current) {
+      document.addEventListener("scroll", handleScroll);
+    }
+    if (!galleryRef.current) {
+      return document.removeEventListener("scroll", handleScroll);
+    }
+  }, [galleryRef.current, page]);
+
   photos.forEach((photo) => {
     let img = new Image();
 
@@ -53,6 +73,9 @@ function Gallery({ photos, openCarousel, choosingFunc, title }) {
 
   const filteredPhotos = dateFilter(photos);
   const media = filteredPhotos.map((photo, index) => {
+    if (index > page * 50) {
+      return;
+    }
     return (
       <button
         className={`gallery-item ${orientation}`}
