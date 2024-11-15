@@ -6,8 +6,6 @@ function Gallery({ photos, openCarousel, choosingFunc, title }) {
   const [orientation, setOrientation] = useState("vert-item");
   const [page, setPage] = useState(1);
 
-  console.log(page);
-
   const itemRef = useRef(null);
   const galleryRef = useRef(null);
 
@@ -57,22 +55,14 @@ function Gallery({ photos, openCarousel, choosingFunc, title }) {
   }, [galleryRef.current, page]);
 
   photos.forEach((photo) => {
-    let img = new Image();
-
-    img.onload = function () {
-      let width = img.width;
-      let height = img.height;
-
-      if (width > height) {
-        setOrientation("horizontal-item");
-      }
-    };
-
-    img.src = "/images/" + photo.name;
+    if (photo.width > photo.height && orientation !== "horizontal-item") {
+      setOrientation("horizontal-item");
+    }
   });
 
   const filteredPhotos = dateFilter(photos);
-  const media = filteredPhotos.map((photo, index) => {
+
+  const showingPhotos = filteredPhotos.map((photo, index) => {
     if (index > page * 50) {
       return;
     }
@@ -90,11 +80,12 @@ function Gallery({ photos, openCarousel, choosingFunc, title }) {
       </button>
     );
   });
+
   return (
     <>
       <div className="gallery" ref={galleryRef}>
         {title ? <h2>{title}</h2> : <></>}
-        {media}
+        {showingPhotos}
       </div>
     </>
   );
