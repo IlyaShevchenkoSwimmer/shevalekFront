@@ -345,6 +345,7 @@ function NewCarousel({
                 <img
                   src={`/images/${photo.name}`}
                   className="cool-carousel-img"
+                  loading="lazy"
                 />
               </div>
             );

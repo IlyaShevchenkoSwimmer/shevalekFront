@@ -4,7 +4,7 @@ import dateFilter from "../../functions/dateFilter.jsx";
 
 function Gallery({ photos, openCarousel, choosingFunc, title }) {
   const [orientation, setOrientation] = useState("vert-item");
-  const [page, setPage] = useState(1);
+  // const [page, setPage] = useState(1);
 
   const itemRef = useRef(null);
   const galleryRef = useRef(null);
@@ -37,22 +37,22 @@ function Gallery({ photos, openCarousel, choosingFunc, title }) {
     }
   }, [galleryRef.current]);
 
-  const handleScroll = useCallback(() => {
-    const body = document.querySelector("body");
-    if (body.getBoundingClientRect().bottom < window.innerHeight + 1) {
-      setPage(page + 1);
-    }
-    //console.log(body.getBoundingClientRect().bottom, window.innerHeight);
-  }, [galleryRef.current, page]);
+  // const handleScroll = useCallback(() => {
+  //   const body = document.querySelector("body");
+  //   if (body.getBoundingClientRect().bottom < window.innerHeight + 1) {
+  //     setPage(page + 1);
+  //   }
+  //   //console.log(body.getBoundingClientRect().bottom, window.innerHeight);
+  // }, [galleryRef.current, page]);
 
-  useEffect(() => {
-    if (galleryRef.current) {
-      document.addEventListener("scroll", handleScroll);
-    }
-    if (!galleryRef.current) {
-      return document.removeEventListener("scroll", handleScroll);
-    }
-  }, [galleryRef.current, page]);
+  // useEffect(() => {
+  //   if (galleryRef.current) {
+  //     document.addEventListener("scroll", handleScroll);
+  //   }
+  //   if (!galleryRef.current) {
+  //     return document.removeEventListener("scroll", handleScroll);
+  //   }
+  // }, [galleryRef.current, page]);
 
   photos.forEach((photo) => {
     if (photo.width > photo.height && orientation !== "horizontal-item") {
@@ -63,9 +63,9 @@ function Gallery({ photos, openCarousel, choosingFunc, title }) {
   const filteredPhotos = dateFilter(photos);
 
   const showingPhotos = filteredPhotos.map((photo, index) => {
-    if (index > page * 50) {
-      return;
-    }
+    // if (index > page * 50) {
+    //   return;
+    // }
     return (
       <button
         className={`gallery-item ${orientation}`}
@@ -76,7 +76,11 @@ function Gallery({ photos, openCarousel, choosingFunc, title }) {
         ref={itemRef}
         key={index}
       >
-        <img src={"/images/" + photo.name} className={`gallery-img `}></img>
+        <img
+          src={"/images/" + photo.name}
+          className={`gallery-img `}
+          loading="lazy"
+        ></img>
       </button>
     );
   });
