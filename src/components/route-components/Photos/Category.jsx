@@ -52,13 +52,13 @@ function Category() {
         openCarousel={setCarousel}
         choosingFunc={setCarouselIndex}
       />
-      <NewCarousel
+      {/* <NewCarousel
         visibility={carousel}
         photos={album}
         photoIndex={carouselIndex}
         choosingFunc={setCarouselIndex}
         closingFunc={setCarousel}
-      />
+      /> */}
     </div>
   );
 }

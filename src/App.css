@@ -7,6 +7,10 @@ body {
   min-height: 100svh;
 }
 
+.body-no-scroll {
+  overflow: hidden;
+}
+
 #root {
   max-width: 1440px;
   width: 100%;

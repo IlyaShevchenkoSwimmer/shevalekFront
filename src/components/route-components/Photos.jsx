@@ -63,13 +63,13 @@ function Photos() {
         choosingFunc={setCarouselIndex}
         title="Небесная жемчужина"
       />
-      <NewCarousel
+      {/* <NewCarousel
         photos={album}
         photoIndex={carouselIndex}
         visibility={carousel}
         closingFunc={setCarousel}
         choosingFunc={setCarouselIndex}
-      />
+      /> */}
     </div>
   ) : (
     <Outlet />

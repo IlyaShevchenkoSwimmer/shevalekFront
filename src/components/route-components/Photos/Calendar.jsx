@@ -85,13 +85,13 @@ function Calendar() {
         choosingFunc={setCarouselIndex}
         title="Луна в городе"
       />
-      <NewCarousel
+      {/* <NewCarousel
         visibility={carousel}
         photos={album}
         photoIndex={carouselIndex}
         choosingFunc={setCarouselIndex}
         closingFunc={setCarousel}
-      />
+      /> */}
     </div>
   );
 }
