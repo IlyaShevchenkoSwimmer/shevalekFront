@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import "./Gallery.css";
 import dateFilter from "../../functions/dateFilter.jsx";
-import SwiperCarousel from "./SwiperCarousel.jsx";
+import LightCarousel from "./LightCarousel.jsx";
 
 function Gallery({ photos, openCarousel, choosingFunc, title }) {
   const [orientation, setOrientation] = useState("vert-item");
@@ -72,15 +72,15 @@ function Gallery({ photos, openCarousel, choosingFunc, title }) {
       <button
         className={`gallery-item ${orientation}`}
         onClick={() => {
-          const swiperCarousel = document.querySelector(
-            ".swiper-carousel-wrapper"
+          const lightCarousel = document.querySelector(
+            ".light-carousel-wrapper"
           );
-          const closingSwiperCarouselButton = document.querySelector(
-            ".close-swiper-carousel"
+          const closingLightCarouselButton = document.querySelector(
+            ".close-light-carousel"
           );
-          if (swiperCarousel) {
-            swiperCarousel.classList.remove("swiper-carousel-wrapper-closed");
-            closingSwiperCarouselButton.classList.remove(
+          if (lightCarousel) {
+            lightCarousel.classList.remove("light-carousel-wrapper-closed");
+            closingLightCarouselButton.classList.remove(
               "disappeared-close-button"
             );
           }
@@ -105,7 +105,12 @@ function Gallery({ photos, openCarousel, choosingFunc, title }) {
         {title ? <h2>{title}</h2> : <></>}
         {showingPhotos}
       </div>
-      <SwiperCarousel
+      {/* <SwiperCarousel
+        photos={filteredPhotos}
+        chosenPhoto={chosenPhoto}
+        setChosenPhoto={setChosenPhoto}
+      /> */}
+      <LightCarousel
         photos={filteredPhotos}
         chosenPhoto={chosenPhoto}
         setChosenPhoto={setChosenPhoto}
